@@ -69,3 +69,7 @@ Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+
+# ADD BY BINLAO
+Binaries/Win64/*
