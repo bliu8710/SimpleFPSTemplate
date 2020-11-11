@@ -3,6 +3,7 @@
 
 #include "FPSExtractionZoneActor.h"
 #include "Components/BoxComponent.h"
+#include "Components/DecalComponent.h"
 
 // Sets default values
 AFPSExtractionZoneActor::AFPSExtractionZoneActor()
@@ -15,10 +16,14 @@ AFPSExtractionZoneActor::AFPSExtractionZoneActor()
 	RootComponent = OverlapComp;
 
 	/* 设置在editor可见 */
-	OverlapComp->SetHiddenInGame(false);
+	//OverlapComp->SetHiddenInGame(false);
 
 	OverlapComp->OnComponentBeginOverlap.AddDynamic(this, &AFPSExtractionZoneActor::HandleOverlap);
 
+	/* 添加贴花 */
+	DecalComp = CreateDefaultSubobject<UDecalComponent>(TEXT("DecalComp"));
+	DecalComp->DecalSize = FVector(200.0f, 200.0f, 200.0f);
+	//DecalComp->SetupAttachment(RootComponent);
 }
 
 
